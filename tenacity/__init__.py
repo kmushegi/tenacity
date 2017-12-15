@@ -22,11 +22,6 @@ try:
 except ImportError:
     asyncio = None
 
-try:
-    import tornado
-except ImportError:
-    tornado = None
-
 import inspect
 import sys
 import threading
@@ -95,8 +90,6 @@ def retry(*dargs, **dkw):
         def wrap(f):
             if asyncio and asyncio.iscoroutinefunction(f):
                 r = AsyncRetrying(*dargs, **dkw)
-            elif tornado and tornado.gen.is_coroutine_function(f):
-                r = TornadoRetrying(*dargs, **dkw)
             else:
                 r = Retrying(*dargs, **dkw)
 
@@ -351,5 +344,3 @@ class RetryError(Exception):
 if asyncio:
     from tenacity.async import AsyncRetrying
 
-if tornado:
-    from tenacity.tornadoweb import TornadoRetrying
