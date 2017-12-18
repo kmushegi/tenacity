@@ -17,10 +17,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-try:
-    import asyncio
-except ImportError:
-    asyncio = None
+# try:
+#     import asyncio
+# except ImportError:
+#     asyncio = None
+
+asyncio = None
 
 import inspect
 import sys
