@@ -343,6 +343,5 @@ class RetryError(Exception):
         return "RetryError[{0}]".format(self.last_attempt)
 
 
-if asyncio:
-    from tenacity.async import AsyncRetrying
-
+# if asyncio:
+#     from tenacity.async import AsyncRetrying
